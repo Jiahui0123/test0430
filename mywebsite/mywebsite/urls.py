@@ -20,6 +20,7 @@ from app001.views import sayhello, hello2, hello3, hello4, dice, employee
 import students.views as stdViews
 import cookiessessions.views as csViews
 import flower.views as fviews
+import news.views as newsView
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -81,6 +82,10 @@ urlpatterns = [
     # flower 
     path('flower/',fviews.flowers,name='flower'),
     path('flower/<slug:slug>/', fviews.detail, name='detail'), 
+
+    # news app
+    path('news/',newsView.index),
+    path('news/detail/<int:detail_id>/',newsView.detail,name="detail"),
 
 ]
 # 處理媒體檔案
